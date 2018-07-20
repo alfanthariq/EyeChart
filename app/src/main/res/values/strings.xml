@@ -1,0 +1,143 @@
+<resources>
+    <string name="app_name">EyeChart</string>
+
+    // Title activity
+    <string name="title_snallen">Snellen Chart</string>
+    <string name="title_tumbling_e">Tumbling E</string>
+    <string name="title_landolt">Landolt C</string>
+    <string name="title_lea">Kindergarten</string>
+    <string name="title_sloan">Sloan Chart</string>
+    <string name="title_number">Number</string>
+    <string name="title_ishihara">Color Blind</string>
+    <string name="title_dot_test">Dot Test</string>
+    <string name="title_amsler">Amsler</string>
+    <string name="title_axis">Axis</string>
+    <string name="title_red_green">Red Green</string>
+    <string name="title_duo_chrome">Duochrome</string>
+    <string name="title_aniseikonia">Aniseikonia</string>
+    <string name="title_okn">OKN Stripes</string>
+    <string name="title_schober">Schober</string>
+    <string name="title_hirs">Hirschberg</string>
+    <string name="title_pediatric">Eye Chart Pediatric</string>
+    <string name="title_anatomy">Eye Anatomy</string>
+    <string name="title_edu">Eye Education</string>
+    <string name="title_setting">Settings</string>
+
+    //Pengaturan
+    <string name="setting_distance">Distance from User to Display</string>
+    <string name="setting_unit">Input Unit</string>
+    <string name="setting_denominator">Snellen Fraction Denominator</string>
+    <string name="setting_diagonal_size">Screen Diagonal Size</string>
+    <string name="setting_hor_res">Screen Horizontal Resolution (pixels)</string>
+    <string name="setting_ver_res">Screen Vertical Resolution (pixels)</string>
+
+    // Drawer menu
+    <string name="menu_dashboard">Dashboard</string>
+    <string name="menu1">Snellen Chart</string>
+    <string name="menu2">Tumbling E</string>
+    <string name="menu3">Landolt C</string>
+    <string name="menu4">Kindergarten</string>
+    <string name="menu5">Sloan Letters</string>
+    <string name="menu6">Numbers</string>
+    <string name="menu7">Color Blind</string>
+    <string name="menu8">Dot Test</string>
+    <string name="menu9">Red Green</string>
+    <string name="menu10">Amsler</string>
+    <string name="menu11">Eye Chart Pediatric</string>
+    <string name="menu12">Axis</string>
+    <string name="menu13">Duochrome</string>
+    <string name="menu14">Schober</string>
+    <string name="menu15">OKN Stripes</string>
+    <string name="menu16">Hirschberg</string>
+    <string name="menu17">Aniseikonia</string>
+    <string name="menu18">Eye Anatomy</string>
+    <string name="menu19">Eye Education</string>
+    <string name="menu20">Setting</string>
+
+    // Snellen
+    <string name="snellen_decimal_start_value">00.00</string>
+    <string name="snellen_decimal_title">Decimal</string>
+    <string name="snellen_fraction_denominator_20">20/20</string>
+    <string name="snellen_fraction_denominator_6">6/6</string>
+    <string name="snellen_fraction_start_value">000/000</string>
+    <string name="snellen_fraction_title">Snellen Fraction</string>
+    <string name="snellen_logmar_start_value">00.00</string>
+    <string name="snellen_logmar_title">LogMAR</string>
+    <string name="chart_biggest_optotype_warning_1">Biggest Optotype Reached (display limits)</string>
+    <string name="chart_biggest_optotype_warning_2">Biggest Optotype Reached</string>
+    <string name="chart_optotype_outside_limits_warning">Optotype Outside Custom Limits</string>
+    <string name="chart_smallest_optotype_warning_1">Smallest Optotype Reached (display limits)</string>
+    <string name="chart_smallest_optotype_warning_2">Smallest Optotype Reached</string>
+
+    <string name="ani_bigger">Green shape bigger than red shape</string>
+    <string name="ani_smaller">Green shape smaller than red shape</string>
+    <string name="ani_same">Green shape have same size with red shape</string>
+
+    <string name="schober_lefter">Plus sign bit too left</string>
+    <string name="schober_righter">Plus sign bit too right</string>
+    <string name="schober_upper">Plus sign bit too high</string>
+    <string name="schober_lower">Plus sign bit too low</string>
+    <string name="schober_center">Plus sign exactly at the center</string>
+
+    <string name="guide_optotype">
+        \n- Press UP button to increase size\n\n
+        - Press DOWN button to decrease size\n\n
+        - Press RIGHT button to add a random char\n\n
+        - Press LEFT button to subtract a random char
+    </string>
+
+    <string name="guide_exam_general">
+        \n- Press UP button to increase image size\n\n
+        - Press DOWN button to decrease image size\n\n
+        - Press RIGHT button to show next image\n\n
+        - Press LEFT button to show previous image
+    </string>
+
+    <string name="guide_anatomy">
+        \n- Press UP button to increase image size\n\n
+        - Press DOWN button to decrease image size\n\n
+        - Press RIGHT button to show next image\n\n
+        - Press LEFT button to show previous image\n\n
+        - Press PLAY MEDIA button to show setting image folder
+    </string>
+
+    <string name="guide_duochrome">
+        \n- Press UP button to increase image size\n\n
+        - Press DOWN button to decrease image size
+    </string>
+
+    <string name="guide_okn">
+        \n- Press UP button to increase speed\n\n
+        - Press DOWN button to slow down speed\n\n
+        - Press RIGHT button to change stripe color\n\n
+        - Press LEFT button to show / hide circle
+    </string>
+
+    <string name="guide_ani">
+        \n- Press UP button to increase green shape size\n\n
+        - Press DOWN button to decrease green shape size\n\n
+        - Press RIGHT button to change orientation to vertical\n\n
+        - Press LEFT button to change orientation to horizontal\n\n
+        - Press PLAY MEDIA button to show compare result
+    </string>
+
+    <string name="guide_schober">
+        \n- Press UP button to move plus sign upper\n\n
+        - Press DOWN button to move plus sign lower\n\n
+        - Press RIGHT button to move plus sign a bit to right\n\n
+        - Press LEFT button to move plus sign a bit to left\n\n
+        - Press PLAY MEDIA button to show precise position
+    </string>
+
+    <string name="guide_edu">
+        \n- Choose submenu with OK button\n\n
+        - After choose submenu you can : \n
+            * resize image with UP / DOWN button\n
+            * change image with LEFT / RIGHT button\n\n
+        - Press BACK button for back to choose submenu\n\n
+        - Press PLAY MEDIA button to show setting image folder
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

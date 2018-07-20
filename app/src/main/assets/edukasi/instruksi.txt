@@ -1,0 +1,19 @@
+0 = Gangguan Mata
+1 = Astigmatic
+2 = Bleparitis
+3 = Calation
+4 = Conjunctivitis
+5 = Conjunctivitis Alergica
+6 = Glaucoma
+7 = Iritis
+8 = Katarak
+9 = Kelainan Refraksi
+10 = Keratitis dan Ulcus Cornea
+11 = Kontak lens
+12 = Pterygium
+13 = Retinal Disease
+14 = Strabismus
+15 = Lain-Lain
+
+Copy folder "edukasi" ke internal / external storage android.
+Setting folder di aplikasi ke folder "edukasi" yang sudah di copy tadi.

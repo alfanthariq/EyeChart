@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.alfanthariq.eyechart">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:banner="@drawable/launcher"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        app:showAsAction="always"
+        tools:replace="android:theme">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".unused.LeaSymbolsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".unused.SnellenChartActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".optotype.SloanActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".optotype.TumblingEChartActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".optotype.LandoltCActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".unused.NumberActivity2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".exam.IshiharaActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".optotype.ColumnActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".exam.DotTestActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".exam.AmslerActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".exam.AxisActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".exam.RedGreenActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".exam.DuochromeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".exam.AniseikoniaActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".exam.OknStripesActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".exam.SchoberActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".information.EyeAnatomyActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".information.EdukasiActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".exam.HirschbergActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".exam.PediatricActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".optotype.KindergartenActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".optotype.NumberActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".optotype.SnellenActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+    </application>
+
+</manifest>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="random_imgs">
+        <item>@drawable/is1</item>
+        <item>@drawable/is2</item>
+        <item>@drawable/is3</item>
+        <item>@drawable/is4</item>
+        <item>@drawable/is5</item>
+        <item>@drawable/is6</item>
+        <item>@drawable/is7</item>
+        <item>@drawable/is8</item>
+        <item>@drawable/is9</item>
+        <item>@drawable/is10</item>
+        <item>@drawable/is11</item>
+        <item>@drawable/is12</item>
+        <item>@drawable/is13</item>
+        <item>@drawable/is14</item>
+        <item>@drawable/is15</item>
+        <item>@drawable/is16</item>
+        <item>@drawable/is17</item>
+        <item>@drawable/is18</item>
+        <item>@drawable/is19</item>
+        <item>@drawable/is20</item>
+        <item>@drawable/is21</item>
+        <item>@drawable/is22</item>
+        <item>@drawable/is23</item>
+        <item>@drawable/is24</item>
+        <item>@drawable/is25</item>
+        <item>@drawable/is26</item>
+        <item>@drawable/is27</item>
+        <item>@drawable/is28</item>
+        <item>@drawable/is29</item>
+        <item>@drawable/is30</item>
+        <item>@drawable/is31</item>
+        <item>@drawable/is32</item>
+        <item>@drawable/is33</item>
+        <item>@drawable/is34</item>
+        <item>@drawable/is35</item>
+        <item>@drawable/is36</item>
+        <item>@drawable/is37</item>
+        <item>@drawable/is38</item>
+    </integer-array>
+
+    <integer-array name="dot_test">
+        <item>@drawable/dot1</item>
+        <item>@drawable/dot2</item>
+        <item>@drawable/dot3</item>
+        <item>@drawable/dot4</item>
+        <item>@drawable/dot5</item>
+        <item>@drawable/dot6</item>
+        <item>@drawable/dot7</item>
+        <item>@drawable/dot8</item>
+        <item>@drawable/dot9</item>
+    </integer-array>
+
+    <integer-array name="amsler">
+        <item>@drawable/ams1</item>
+        <item>@drawable/ams2</item>
+        <item>@drawable/ams3</item>
+        <item>@drawable/ams4</item>
+    </integer-array>
+
+    <integer-array name="axis">
+        <item>@drawable/ax1</item>
+        <item>@drawable/ax2</item>
+        <item>@drawable/ax3</item>
+        <item>@drawable/ax4</item>
+        <item>@drawable/ax5</item>
+    </integer-array>
+
+    <integer-array name="red_green">
+        <item>@drawable/rg1</item>
+        <item>@drawable/rg2</item>
+        <item>@drawable/rg3</item>
+        <item>@drawable/rg4</item>
+        <item>@drawable/rg5</item>
+        <item>@drawable/rg6</item>
+        <item>@drawable/rg7</item>
+        <item>@drawable/rg8</item>
+        <item>@drawable/rg9</item>
+        <item>@drawable/rg10</item>
+        <item>@drawable/rg11</item>
+        <item>@drawable/rg12</item>
+    </integer-array>
+
+    <integer-array name="anatomy">
+        <item>@drawable/ana1</item>
+        <item>@drawable/ana2</item>
+        <item>@drawable/ana3</item>
+        <item>@drawable/ana4</item>
+        <item>@drawable/ana5</item>
+        <item>@drawable/ana6</item>
+        <item>@drawable/ana7</item>
+        <item>@drawable/ana8</item>
+        <item>@drawable/ana9</item>
+        <item>@drawable/ana10</item>
+    </integer-array>
+
+    <integer-array name="hirs">
+        <item>@drawable/hirs1</item>
+        <item>@drawable/hirs2</item>
+    </integer-array>
+
+    <integer-array name="pediatric">
+        <item>@drawable/pe1</item>
+        <item>@drawable/pe2</item>
+        <item>@drawable/pe3</item>
+        <item>@drawable/pe4</item>
+        <item>@drawable/pe5</item>
+        <item>@drawable/pe6</item>
+        <item>@drawable/pe7</item>
+    </integer-array>
+</resources>
