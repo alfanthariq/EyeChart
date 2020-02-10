@@ -1,6 +1,7 @@
 package com.alfanthariq.eyechart.optotype;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -17,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -25,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alfanthariq.eyechart.R;
+import com.alfanthariq.eyechart.SettingsActivity;
 import com.alfanthariq.eyechart.helper.OnSwipeTouchListener;
 
 import org.w3c.dom.Text;
@@ -53,6 +56,7 @@ public class TumblingEChartActivity extends AppCompatActivity {
     private Double ContrastLevel;
     private RelativeLayout layProgress;
     private ProgressBar progressBar;
+    private ImageButton imb_setting;
     private Random rand;
     private int[] rotation = new int[]{0, 90, 180, 270};
     private ArrayList<TextView> tumblingText1, tumblingText2, tumblingText3, tumblingText4;
@@ -93,13 +97,8 @@ public class TumblingEChartActivity extends AppCompatActivity {
                     @SuppressWarnings("deprecation")
                     @Override
                     public void onGlobalLayout() {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                            container.getViewTreeObserver()
-                                    .removeOnGlobalLayoutListener(this);
-                        } else {
-                            container.getViewTreeObserver()
-                                    .removeGlobalOnLayoutListener(this);
-                        }
+                        container.getViewTreeObserver()
+                                .removeOnGlobalLayoutListener(this);
 
                         cekLimit();
                     }
@@ -125,9 +124,17 @@ public class TumblingEChartActivity extends AppCompatActivity {
         txtlogMAR = findViewById(R.id.txtLogMAR);
         layProgress = findViewById(R.id.layProgress);
         progressBar = findViewById(R.id.progressbar);
+        imb_setting = findViewById(R.id.imb_setting);
         rand = new Random();
         letterCount = 0;
         currSizeIndex = 0;
+
+        imb_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSetting();
+            }
+        });
         
         fontPath = "fonts/RotationFont.ttf";
 
@@ -155,6 +162,38 @@ public class TumblingEChartActivity extends AppCompatActivity {
         if (getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true))
         {
             actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data,getResources().getDisplayMetrics());
+        }
+    }
+
+    private void openSetting(){
+        Intent intent = new Intent(TumblingEChartActivity.this, SettingsActivity.class);
+        startActivityForResult(intent, 100);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100) {
+            letterCount = 0;
+            currSizeIndex = 0;
+            getPrefs();
+            decimalFraction = new Double[]{
+                    Double.valueOf(20.0d/400.0d), Double.valueOf(20.0d/320.0d), Double.valueOf(20.0d/250.0d),
+                    Double.valueOf(20.0d/200.0d), Double.valueOf(20.0d/160.0d), Double.valueOf(20.0d/125.0d),
+                    Double.valueOf(20.0d/100.0d), Double.valueOf(20.0d/80.0d), Double.valueOf(20.0d/63.0d),
+                    Double.valueOf(20.0d/50.0d), Double.valueOf(20.0d/40.0d), Double.valueOf(20.0d/32.0d),
+                    Double.valueOf(20.0d/25.0d), Double.valueOf(20.0d/20.0d), Double.valueOf(20.0d/16.0d),
+                    Double.valueOf(20.0d/12.5d), Double.valueOf(20.0d/10.0d)};
+            fractionStr20 = new String[]{
+                    "20/400", "20/320", "20/250", "20/200", "20/160", "20/125", "20/100",
+                    "20/80", "20/63", "20/50", "20/40", "20/32", "20/25", "20/20", "20/16",
+                    "20/12.5", "20/10"
+            };
+            fractionStr6 = new String[]{
+                    "6/120", "6/96", "6/75", "6/60", "6/40", "6/37.5", "6/30", "6/24", "6/18.9",
+                    "6/15", "6/12", "6/6.4", "6/7.5", "6/6", "6/4.8", "6/3.75", "6/3"
+            };
+            cekLimit();
         }
     }
 
@@ -197,6 +236,9 @@ public class TumblingEChartActivity extends AppCompatActivity {
                 return true;
             case 22: // right
                 swipeRight();
+                return true;
+            case 24: // volume up
+                openSetting();
                 return true;
             case KeyEvent.KEYCODE_BACK:
                 finish();
@@ -294,14 +336,16 @@ public class TumblingEChartActivity extends AppCompatActivity {
         }
 
         if (modelUnit==0) {
-            distance = Double.valueOf(pref.getString("distance", "600"));
+            Double d = Double.valueOf(pref.getString("distance", "600"));
+            distance = d - 2.5d;
             txtDistance.setText("Distance : "+Double.valueOf(pref.getString("distance", "600"))+" cm");
 
             Double diagonalMM = mAcuity.convertInches2Millimeters(mAcuity.getScreenInch());
             customDiagonal = mAcuity.convertMillimeters2Inches(Double.valueOf(pref.getString("diagonal", Double.toString(diagonalMM))));
         } else {
-            distance = mAcuity.convertFeet2Centimeters(Double.valueOf(pref.getString("distance", "19")));
-            txtDistance.setText("Distance : "+Double.valueOf(pref.getString("distance", "19"))+" feet");
+            Double d = Double.valueOf(pref.getString("distance", "19"));
+            distance = mAcuity.convertFeet2Centimeters(d-1.0d);
+            txtDistance.setText("Distance : "+d+" feet");
 
             customDiagonal = Double.valueOf(pref.getString("diagonal", Double.toString(mAcuity.getScreenInch())));
         }
@@ -322,8 +366,7 @@ public class TumblingEChartActivity extends AppCompatActivity {
         tv.setAlpha(Float.valueOf(Double.valueOf(ContrastLevel/100.0d).toString()));
         tv.setTextColor(Color.BLACK);
         tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-        //tv.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-        //tv.setIncludeFontPadding(false);
+        tv.setPadding(5,5,5,5);
         CalligraphyUtils.applyFontToTextView(this, tv, fontPath);
 
         // Tambah

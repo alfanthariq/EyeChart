@@ -91,13 +91,8 @@ public class ColumnActivity extends AppCompatActivity {
                     @SuppressWarnings("deprecation")
                     @Override
                     public void onGlobalLayout() {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                            container.getViewTreeObserver()
-                                    .removeOnGlobalLayoutListener(this);
-                        } else {
-                            container.getViewTreeObserver()
-                                    .removeGlobalOnLayoutListener(this);
-                        }
+                        container.getViewTreeObserver()
+                                .removeOnGlobalLayoutListener(this);
 
                         cekLimit();
                     }
@@ -260,14 +255,25 @@ public class ColumnActivity extends AppCompatActivity {
         letters = new ArrayList<>(Arrays.asList(allowedLetter));
 
         if (modelUnit==0) {
-            distance = Double.valueOf(pref.getString("distance", "600"));
+            if (tipeChart == 2) {
+                Double d = Double.valueOf(pref.getString("distance", "600"));
+                distance = d - 2.5d;
+            } else {
+                distance = Double.valueOf(pref.getString("distance", "600"));
+            }
             txtDistance.setText("Distance : "+Double.valueOf(pref.getString("distance", "600"))+" cm");
 
             Double diagonalMM = mAcuity.convertInches2Millimeters(mAcuity.getScreenInch());
             customDiagonal = mAcuity.convertMillimeters2Inches(Double.valueOf(pref.getString("diagonal", Double.toString(diagonalMM))));
         } else {
-            distance = mAcuity.convertFeet2Centimeters(Double.valueOf(pref.getString("distance", "19")));
-            txtDistance.setText("Distance : "+Double.valueOf(pref.getString("distance", "19"))+" feet");
+            if (tipeChart == 2) {
+                Double d = Double.valueOf(pref.getString("distance", "19"));
+                distance = mAcuity.convertFeet2Centimeters(d-1.0d);
+                txtDistance.setText("Distance : "+d+" feet");
+            } else {
+                distance = mAcuity.convertFeet2Centimeters(Double.valueOf(pref.getString("distance", "19")));
+                txtDistance.setText("Distance : "+Double.valueOf(pref.getString("distance", "19"))+" feet");
+            }
 
             customDiagonal = Double.valueOf(pref.getString("diagonal", Double.toString(mAcuity.getScreenInch())));
         }
@@ -337,6 +343,7 @@ public class ColumnActivity extends AppCompatActivity {
             tv.setTextSize(TypedValue.COMPLEX_UNIT_MM, (float) Math.floor(fontSize));
             tv.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
             tv.setTextColor(Color.BLACK);
+            tv.setPadding(5,5,5,5);
             tv.setAlpha(Float.valueOf(Double.valueOf(ContrastLevel/100.0d).toString()));
             randIntNew = rand.nextInt(rotation.length);
             if (i>0) {

@@ -21,15 +21,32 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_snallen"
-                android:textStyle="bold"
-                android:textColor="@color/colorWhite"
-                android:layout_gravity="center"
-                android:textSize="20sp"
-                android:id="@+id/toolbar_title" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="@string/title_snallen"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorWhite"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:id="@+id/toolbar_title" />
+
+                <ImageButton
+                    android:id="@+id/imb_setting"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@android:drawable/ic_menu_manage"
+                    android:tint="@color/colorWhite"/>
+            </LinearLayout>
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
