@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:id="@+id/rg_model">
+        <RadioButton
+            android:id="@+id/rb_model_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Single Line"
+            android:layout_marginRight="20dp"/>
+
+        <RadioButton
+            android:id="@+id/rb_model_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Double Same"/>
+
+        <RadioButton
+            android:id="@+id/rb_model_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Triple Same"/>
+
+        <RadioButton
+            android:id="@+id/rb_model_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Triple Decrease"/>
+
+        <RadioButton
+            android:id="@+id/rb_model_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quadruple Same"/>
+
+        <RadioButton
+            android:id="@+id/rb_model_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quadruple Decrease"/>
+
+        <RadioButton
+            android:id="@+id/rb_model_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Single Letter"/>
+
+        <RadioButton
+            android:id="@+id/rb_model_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Column"/>
+    </RadioGroup>
+</RelativeLayout>

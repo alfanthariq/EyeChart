@@ -1,8 +1,10 @@
 package com.alfanthariq.eyechart;
 
+import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.graphics.Point;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +13,7 @@ import android.text.TextWatcher;
 import android.view.Display;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
@@ -23,12 +26,14 @@ import android.widget.TextView;
 
 import com.alfanthariq.eyechart.optotype.AcuityToolbox;
 
+import java.util.Calendar;
+
 public class SettingsActivity extends AppCompatActivity {
     private Toolbar myToolbar = null;
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
     private RadioGroup rgUnit, rgDenom;
-    private TextView txtRes;
+    private TextView txtRes, txtModel;
     private RadioButton rbMetric, rbImperial, rb20, rb6;
     private EditText inputDistance, inputNumber, inputContrast,
                      inputLetter, inputCol, inputRow, inputDiagonal, inputMarginR, inputMarginB;
@@ -55,6 +60,7 @@ public class SettingsActivity extends AppCompatActivity {
         rb6 = findViewById(R.id.rb_6);
 
         txtRes = findViewById(R.id.txtResolution);
+        txtModel = findViewById(R.id.txt_model);
         inputDistance = findViewById(R.id.input_distance);
         inputContrast = findViewById(R.id.input_contrast);
         inputNumber = findViewById(R.id.input_number);
@@ -78,6 +84,7 @@ public class SettingsActivity extends AppCompatActivity {
         height = size.y;
 
         diagonalMM = mAcuity.convertInches2Millimeters(mAcuity.getScreenInch());
+        System.out.println("Diagonal : "+mAcuity.getScreenSizeInches());
 
         getPrefs();
         setupToolbar();
@@ -112,6 +119,28 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
+        rbMetric.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (rgUnit.hasFocus()) {
+                    rgUnit.setBackground(ContextCompat.getDrawable(SettingsActivity.this, R.drawable.container_bg));
+                    rgDenom.setBackground(null);
+                } else {
+                    rgUnit.setBackground(null);
+                }
+            }
+        });
+
+        rbImperial.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (rgUnit.hasFocus()) {
+                    rgUnit.setBackground(ContextCompat.getDrawable(SettingsActivity.this, R.drawable.container_bg));
+                    rgDenom.setBackground(null);
+                }
+            }
+        });
+
         rgDenom.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -131,12 +160,39 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
+        rb20.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (rgDenom.hasFocus()) {
+                    rgDenom.setBackground(ContextCompat.getDrawable(SettingsActivity.this, R.drawable.container_bg));
+                    rgUnit.setBackground(null);
+                }
+            }
+        });
+
+        rb6.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (rgDenom.hasFocus()) {
+                    rgDenom.setBackground(ContextCompat.getDrawable(SettingsActivity.this, R.drawable.container_bg));
+                    rgUnit.setBackground(null);
+                }
+            }
+        });
+
         cbInstruction.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 editor = pref.edit();
                 editor.putBoolean("showGuide", b);
                 editor.apply();
+            }
+        });
+
+        inputDistance.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                rgDenom.setBackground(null);
             }
         });
 
@@ -319,6 +375,41 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
+        txtModel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPilihModel();
+            }
+        });
+
+        int model = pref.getInt("model", 0);
+        switch (model) {
+            case 0:
+                txtModel.setText("Single Line");
+                break;
+            case 1:
+                txtModel.setText("Double Same");
+                break;
+            case 2:
+                txtModel.setText("Triple Same");
+                break;
+            case 3:
+                txtModel.setText("Triple Decrease");
+                break;
+            case 4:
+                txtModel.setText("Quadruple Same");
+                break;
+            case 5:
+                txtModel.setText("Quadruple Decrease");
+                break;
+            case 6:
+                txtModel.setText("Single Letter");
+                break;
+            case 7:
+                txtModel.setText("Column");
+                break;
+        }
+
         String[] arraySpinner = new String[] {
                 "Single Line", "Double Same", "Triple Same", "Triple Decreasing",
                 "Quadruple Same", "Quadruple Decreasing", "Single Letter",
@@ -414,5 +505,112 @@ public class SettingsActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showPilihModel() {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.spinner_radio_layout);
+
+        RadioButton rb0, rb1, rb2, rb3, rb4, rb5, rb6, rb7;
+        rb0 = dialog.findViewById(R.id.rb_model_0);
+        rb1 = dialog.findViewById(R.id.rb_model_1);
+        rb2 = dialog.findViewById(R.id.rb_model_2);
+        rb3 = dialog.findViewById(R.id.rb_model_3);
+        rb4 = dialog.findViewById(R.id.rb_model_4);
+        rb5 = dialog.findViewById(R.id.rb_model_5);
+        rb6 = dialog.findViewById(R.id.rb_model_6);
+        rb7 = dialog.findViewById(R.id.rb_model_7);
+
+        int model = pref.getInt("model", 0);
+        switch (model) {
+            case 0:
+                rb0.setChecked(true);
+                break;
+            case 1:
+                rb1.setChecked(true);
+                break;
+            case 2:
+                rb2.setChecked(true);
+                break;
+            case 3:
+                rb3.setChecked(true);
+                break;
+            case 4:
+                rb4.setChecked(true);
+                break;
+            case 5:
+                rb5.setChecked(true);
+                break;
+            case 6:
+                rb6.setChecked(true);
+                break;
+            case 7:
+                rb7.setChecked(true);
+                break;
+        }
+
+        RadioGroup rgModel = dialog.findViewById(R.id.rg_model);
+        rgModel.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                editor = pref.edit();
+                switch (i){
+                    // 0: single line; 1: imperial
+                    case R.id.rb_model_0:
+                        editor.putInt("model", 0);
+                        txtModel.setText("Single Line");
+                        layoutCol.setVisibility(View.GONE);
+                        layoutRow.setVisibility(View.GONE);
+                        break;
+                    case R.id.rb_model_1:
+                        editor.putInt("model", 1);
+                        txtModel.setText("Double Same");
+                        layoutCol.setVisibility(View.GONE);
+                        layoutRow.setVisibility(View.GONE);
+                        break;
+                    case R.id.rb_model_2:
+                        editor.putInt("model", 2);
+                        txtModel.setText("Triple Same");
+                        layoutCol.setVisibility(View.GONE);
+                        layoutRow.setVisibility(View.GONE);
+                        break;
+                    case R.id.rb_model_3:
+                        editor.putInt("model", 3);
+                        txtModel.setText("Triple Decrease");
+                        layoutCol.setVisibility(View.GONE);
+                        layoutRow.setVisibility(View.GONE);
+                        break;
+                    case R.id.rb_model_4:
+                        editor.putInt("model", 4);
+                        txtModel.setText("Quadruple Same");
+                        layoutCol.setVisibility(View.GONE);
+                        layoutRow.setVisibility(View.GONE);
+                        break;
+                    case R.id.rb_model_5:
+                        editor.putInt("model", 5);
+                        txtModel.setText("Quadruple Decrease");
+                        layoutCol.setVisibility(View.GONE);
+                        layoutRow.setVisibility(View.GONE);
+                        break;
+                    case R.id.rb_model_6:
+                        editor.putInt("model", 6);
+                        txtModel.setText("Single Letter");
+                        layoutCol.setVisibility(View.GONE);
+                        layoutRow.setVisibility(View.GONE);
+                        break;
+                    case R.id.rb_model_7:
+                        editor.putInt("model", 7);
+                        txtModel.setText("Column");
+                        layoutCol.setVisibility(View.VISIBLE);
+                        layoutRow.setVisibility(View.VISIBLE);
+                        break;
+                }
+                editor.apply();
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
     }
 }

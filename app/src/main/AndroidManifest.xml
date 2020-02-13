@@ -22,6 +22,7 @@
         android:theme="@style/AppTheme"
         app:showAsAction="always"
         tools:replace="android:theme">
+        <activity android:name=".optotype.SnellenDrawActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -107,7 +108,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".optotype.SnellenActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

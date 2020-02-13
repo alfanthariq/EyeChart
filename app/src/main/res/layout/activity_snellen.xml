@@ -179,6 +179,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:id="@+id/txtFraction"
+            android:textStyle="bold"
             android:text="Fraction"
             android:textAlignment="center"/>
 
@@ -187,6 +188,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:id="@+id/txtDecimal"
+            android:textStyle="bold"
             android:text="Decimal Acuity"
             android:textAlignment="center"/>
 
@@ -195,6 +197,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:id="@+id/txtLogMAR"
+            android:textStyle="bold"
             android:text="logMAR"
             android:textAlignment="center"/>
 
@@ -203,6 +206,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:id="@+id/txtDistance"
+            android:textStyle="bold"
             android:text="Distance"
             android:textAlignment="center"/>
     </LinearLayout>

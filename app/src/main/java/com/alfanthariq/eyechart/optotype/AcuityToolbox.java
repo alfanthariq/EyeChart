@@ -1,8 +1,13 @@
 package com.alfanthariq.eyechart.optotype;
 
 import android.app.Activity;
+import android.graphics.Point;
+import android.os.Build;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.Display;
+import android.view.WindowManager;
 
 public class AcuityToolbox {
     private static final Double FOOT_2_CENTIMETER = Double.valueOf(30.48d);
@@ -52,12 +57,34 @@ public class AcuityToolbox {
         return c;
     }
 
-    public Double calculateFontSize(Double fractionDecimal, Double distance, Double diagonalInch){
-        Double x =  0.001454441043328608d * (distance * 10.0d);
-        Double xx = (double) Math.round(x / fractionDecimal);
+    /*public Double calculateFontSize(Double fractionDecimal, Double distance, Double diagonalInch){
+        Double x =  0.001454441043328608d * (distance * 10d);
+        double xx = (double) Math.round((x / fractionDecimal));
         //Log.d("calculateFont", Double.toString(Math.round(getScreenInch()/diagonalInch)));
-        Double xxx = xx * (getScreenInch()/diagonalInch);
+        Double xxx = xx * diagonalInch;
+        System.out.println("Screen size 0: "+fractionDecimal);
+        System.out.println("Screen size 1: "+xx);
+        System.out.println("Screen size 2: "+xxx);
+        double distanceInch = convertMillimeters2Inches(distance);
         return xxx;
+    }*/
+
+    public Double calculateFontSize(Double fractionDecimal, Double distance, Double diagonalInch){
+        double distanceM = distance * 0.01d;
+        //double diagonalCM = convertInches2Millimeters(diagonalInch) * 0.1d;
+        double m =  0.00145d * (Math.round(distanceM) / fractionDecimal);
+        double cm = m * 100d;
+        double point = cm * 28.346d;
+        double mm = cm * 10.0d;
+        double dp = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float) mm,
+                this.activity.getResources().getDisplayMetrics());
+        System.out.println("fraction: "+fractionDecimal);
+        System.out.println("distance: "+distance);
+        System.out.println("distance M : "+distanceM);
+        System.out.println("CM : "+cm);
+        System.out.println("Point : "+point);
+        System.out.println("mm : "+mm);
+        return mm;
     }
 
     public Double getScreenInch(){
@@ -67,5 +94,13 @@ public class AcuityToolbox {
         double y = Math.pow(dm.heightPixels/dm.ydpi,2);
         double screenInches = Math.sqrt(x+y);
         return screenInches;
+    }
+
+    public double getScreenSizeInches(){
+        DisplayMetrics met = new DisplayMetrics();
+        this.activity.getWindowManager().getDefaultDisplay().getMetrics(met);// get display metrics object
+        return Math.sqrt(((met.widthPixels / met.xdpi) *
+                (met.widthPixels / met.xdpi)) +
+                ((met.heightPixels / met.ydpi) * (met.heightPixels / met.ydpi)));
     }
 }

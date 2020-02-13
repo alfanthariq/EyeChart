@@ -57,14 +57,14 @@ public class NumberActivity extends AppCompatActivity {
     private Double[] decimalFraction = new Double[]{
             Double.valueOf(20.0d/400.0d), Double.valueOf(20.0d/320.0d), Double.valueOf(20.0d/250.0d),
             Double.valueOf(20.0d/200.0d), Double.valueOf(20.0d/160.0d), Double.valueOf(20.0d/125.0d),
-            Double.valueOf(20.0d/100.0d), Double.valueOf(20.0d/80.0d), Double.valueOf(20.0d/63.0d),
-            Double.valueOf(20.0d/50.0d), Double.valueOf(20.0d/40.0d), Double.valueOf(20.0d/32.0d),
+            Double.valueOf(20.0d/100.0d), Double.valueOf(20.0d/80.0d), Double.valueOf(20.0d/70.0d),
+            Double.valueOf(20.0d/50.0d), Double.valueOf(20.0d/40.0d), Double.valueOf(20.0d/30.0d),
             Double.valueOf(20.0d/25.0d), Double.valueOf(20.0d/20.0d), Double.valueOf(20.0d/16.0d),
             Double.valueOf(20.0d/12.5d), Double.valueOf(20.0d/10.0d)
     };
     private String[] fractionStr20 = new String[]{
             "20/400", "20/320", "20/250", "20/200", "20/160", "20/125", "20/100",
-            "20/80", "20/63", "20/50", "20/40", "20/32", "20/25", "20/20", "20/16",
+            "20/80", "20/70", "20/50", "20/40", "20/30", "20/25", "20/20", "20/16",
             "20/12.5", "20/10"
     };
     private String[] fractionStr6 = new String[]{
@@ -174,13 +174,14 @@ public class NumberActivity extends AppCompatActivity {
             decimalFraction = new Double[]{
                     Double.valueOf(20.0d/400.0d), Double.valueOf(20.0d/320.0d), Double.valueOf(20.0d/250.0d),
                     Double.valueOf(20.0d/200.0d), Double.valueOf(20.0d/160.0d), Double.valueOf(20.0d/125.0d),
-                    Double.valueOf(20.0d/100.0d), Double.valueOf(20.0d/80.0d), Double.valueOf(20.0d/63.0d),
-                    Double.valueOf(20.0d/50.0d), Double.valueOf(20.0d/40.0d), Double.valueOf(20.0d/32.0d),
+                    Double.valueOf(20.0d/100.0d), Double.valueOf(20.0d/80.0d), Double.valueOf(20.0d/70.0d),
+                    Double.valueOf(20.0d/50.0d), Double.valueOf(20.0d/40.0d), Double.valueOf(20.0d/30.0d),
                     Double.valueOf(20.0d/25.0d), Double.valueOf(20.0d/20.0d), Double.valueOf(20.0d/16.0d),
-                    Double.valueOf(20.0d/12.5d), Double.valueOf(20.0d/10.0d)};
+                    Double.valueOf(20.0d/12.5d), Double.valueOf(20.0d/10.0d)
+            };
             fractionStr20 = new String[]{
                     "20/400", "20/320", "20/250", "20/200", "20/160", "20/125", "20/100",
-                    "20/80", "20/63", "20/50", "20/40", "20/32", "20/25", "20/20", "20/16",
+                    "20/80", "20/70", "20/50", "20/40", "20/30", "20/25", "20/20", "20/16",
                     "20/12.5", "20/10"
             };
             fractionStr6 = new String[]{
