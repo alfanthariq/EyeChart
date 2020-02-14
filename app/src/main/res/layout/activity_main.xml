@@ -55,6 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:visibility="gone"
         android:background="@color/colorWhite">
 
         <LinearLayout
@@ -173,6 +174,19 @@
                         android:textColor="@drawable/bright_text_dark_focused"
                         android:background="@drawable/button_bg"
                         android:text="@string/menu6"
+                        android:layout_marginRight="5dp"
+                        android:textAllCaps="false"
+                        android:layout_marginBottom="10dp"/>
+
+                    <Button
+                        android:id="@+id/menu_snellen_draw"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="80dp"
+                        android:layout_gravity="fill"
+                        android:textColor="@drawable/bright_text_dark_focused"
+                        android:background="@drawable/button_bg"
+                        android:text="Snellen Draw"
                         android:layout_marginRight="5dp"
                         android:textAllCaps="false"
                         android:layout_marginBottom="10dp"/>

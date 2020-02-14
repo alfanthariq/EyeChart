@@ -36,6 +36,7 @@ import com.alfanthariq.eyechart.optotype.KindergartenActivity;
 import com.alfanthariq.eyechart.optotype.LandoltCActivity;
 import com.alfanthariq.eyechart.optotype.NumberActivity;
 import com.alfanthariq.eyechart.optotype.SnellenActivity;
+import com.alfanthariq.eyechart.optotype.SnellenDrawActivity;
 import com.alfanthariq.eyechart.unused.SnellenChartActivity;
 import com.alfanthariq.eyechart.optotype.TumblingEChartActivity;
 import com.mikepenz.materialdrawer.AccountHeader;
@@ -167,9 +168,9 @@ public class MainActivity extends AppCompatActivity {
                 case 4:
                     menu = findViewById(R.id.menu4);
                     break;
-                /*case 5:
-                    menu = findViewById(R.id.menu5);
-                    break;*/
+                case 5:
+                    menu = findViewById(R.id.menu_snellen_draw);
+                    break;
                 case 6:
                     menu = findViewById(R.id.menu6);
                     break;
@@ -225,6 +226,7 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.menu1:
                             if (model<7) {
                                 intent = new Intent(MainActivity.this, SnellenActivity.class);
+                                //intent = new Intent(MainActivity.this, SnellenDrawActivity .class);
                             } else {
                                 intent = new Intent(MainActivity.this, ColumnActivity.class);
                                 intent.putExtra("tipeChart", 1);
@@ -254,14 +256,9 @@ public class MainActivity extends AppCompatActivity {
                                 intent.putExtra("tipeChart", 4);
                             }
                             break;
-                        /*case R.id.menu5:
-                            if (model<7) {
-                                intent = new Intent(MainActivity.this, SloanActivity.class);
-                            } else {
-                                intent = new Intent(MainActivity.this, ColumnActivity.class);
-                                intent.putExtra("tipeChart", 5);
-                            }
-                            break;*/
+                        case R.id.menu_snellen_draw:
+                            intent = new Intent(MainActivity.this, SnellenDrawActivity.class);
+                            break;
                         case R.id.menu6:
                             if (model<7) {
                                 intent = new Intent(MainActivity.this, NumberActivity.class);

@@ -328,7 +328,7 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 editor = pref.edit();
-                editor.putString("diagonal", editable.toString());
+                editor.putString("diagonal", editable.toString().replace(",", "."));
                 editor.apply();
             }
         });
@@ -476,7 +476,11 @@ public class SettingsActivity extends AppCompatActivity {
         inputLetter.setText(pref.getString("allowedLetter", "A,B,C,D,E,F,G,H,K,L,N,O,P,T,U,V,Z"));
         inputCol.setText(String.valueOf(pref.getInt("colCount", 1)));
         inputRow.setText(String.valueOf(pref.getInt("rowCount", 1)));
-        inputDiagonal.setText(String.format("%.2f", Double.valueOf(pref.getString("diagonal", Double.toString(diagonalMM)))));
+        try {
+            inputDiagonal.setText(String.format("%.2f", Double.valueOf(pref.getString("diagonal", Double.toString(diagonalMM)))));
+        } catch (Exception e) {
+            inputDiagonal.setText(String.format("%.2f", mAcuity.getScreenSizeInches()));
+        }
         inputMarginR.setText(String.valueOf(pref.getInt("rightMarg", 100)));
         inputMarginB.setText(String.valueOf(pref.getInt("bottomMarg", 100)));
 
